@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case $1 in
+start)
+	read dummy dummy KVER dummy < /proc/version
+	test -e /lib/modules/${KVER}/modules.dep || depmod -a
+	read MODEL < /proc/model
+	for i in llad em8xxx 865xi2c avl6211 avl2108 mxl241sf nimdetect sci${MODEL} 865xdvb; do
+		modprobe $i
+	done
+	;;
+esac
