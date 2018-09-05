@@ -16,6 +16,7 @@ PROVIDES = ""
 RPROVIDES = ""
 
 do_install() {
+    mkdir -p ${DEPLOY_DIR_IMAGE}
     install -m 0644 ${WORKDIR}/update.ext ${DEPLOY_DIR_IMAGE}/
     # install -m 0755 ${WORKDIR}/pack_minime_image.sh ${DEPLOY_DIR_IMAGE}/
 }
